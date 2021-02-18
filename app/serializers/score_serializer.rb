@@ -1,4 +1,4 @@
 class ScoreSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :score, :user
 end
