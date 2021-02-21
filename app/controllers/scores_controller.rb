@@ -1,6 +1,6 @@
 class ScoresController < ApplicationController
     def index
-        scores = Score.all
+        scores = Score.order(score: :desc).limit(3)
         render json: ScoreSerializer.new(scores)
     end
 
