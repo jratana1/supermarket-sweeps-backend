@@ -8,7 +8,7 @@ class ScoresController < ApplicationController
         user = User.find_by(username: params[:username])
         score = Score.new(:user_id => user.id, :score => params[:score])
         if score.save
-            scores= Score.all
+            scores= Score.order(score: :desc).limit(3)
             render json: ScoreSerializer.new(scores)
         end
     end
